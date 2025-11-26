@@ -68,7 +68,7 @@ rad = np.linalg.norm(A)
 
 After generating the random matrix with desired planted structure, we can visually represent the matrix and planted submatrix as two-tone images, where dark pixels correspond to nonzero entries, and light pixels correspond to zero entries.
 
-| Adjacency matrix $A$                                  | Proposed solution $X_0$                                   |Proposed solutions $Y_0$                               |
+| Adjacency matrix $A$                                  | Proposed solution $X_0$                                   |Proposed solution $Y_0$                               |
 | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
 | ![Adjacency matrix $A$](DEMO/planted_submatrix-A.png) |![Proposed solution $X_0$](DEMO/planted_submatrix-X0.png)|![Proposed solution $Y_0$](DEMO/planted_submatrix-Y0.png)|
 
@@ -94,7 +94,9 @@ The ``ENSub`` solver returns vectors $u$ and $v$ containing the characteristic v
 
 We can take the outer product of these to visualise the index set of the planted submatrix.
 
-<!-- ![$X$ and $Y$](DEMO/recovered_submatrix.png) -->
+| Solution $u$                                  | Solution $v$                                   | Solution $X = u v^T$                              |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| ![Solution $u$](DEMO/planted_submatrix-u.png) |![Solution $v$](DEMO/planted_submatrix-v.png)|![Solution $X$](DEMO/planted_submatrix-X.png)|
 
 It must be noted that matrices $X = u v^T$ is identical to the planted solution $X_0$. We can conclude that the planted submatrix is recovered here.
 
@@ -127,6 +129,10 @@ It is clear from the following visualization that this graph contains a single e
 
 ![Graph Sampled from the Dense Subgraph Model](DEMO/G.png)
 
+| Adjacency matrix $A_G$                                  | Graph $G$ |
+| ----------------------------------------------------- | ----------------------------------------------------- | 
+| ![Adjacency matrix $A_G$   ](DEMO/symmetric_AG.png) | ![Graph $G$](DEMO/symmetric-G.png)|
+
 We can find this subgraph by calling ``ENSub``. Here, we change the optimization parameters from their defaults for illustration purposes. We choose $\gamma$ as in the previous example.
 
 ```python
@@ -150,7 +156,9 @@ clique = np.argsort(u)[::-1][:m]
 
 The ``ENSub`` solver converges to the matrix representation of the planted dense subgraph highlighted in the figure below.
 
-![Nodes of the planted subgraph are highlighted as orange squares.](DEMO/Xgraph.png)
+| Solution $X = uv^T$                                  | Planted Subgraph in $G$ |
+| ----------------------------------------------------- | ----------------------------------------------------- |
+| ![Solution $X = uv^T$ ](DEMO/symmetric_results_X.png) | ![Graph $G$](DEMO/symmetric_results_subgraph.png)|
 
 
 #### Exploiting Symmetry
@@ -194,7 +202,9 @@ Ajazz = nx.adjacency_matrix(Gjazz).toarray()
 np.fill_diagonal(Ajazz, 1)
 ```
 
-![The JAZZ graph](DEMO/Jazz_G.png)
+| Adjacency matrix of JAZZ                                 | JAZZ Network |
+| ----------------------------------------------------- | ----------------------------------------------------- |
+| ![Adjacency matrix of JAZZ](DEMO/Jazz_AG.png) | ![JAZZ Graph](DEMO/jazz-G.png)|
 
 We are now ready to try to identify the densest submatrix of size 30 in this adjacency matrix. Here, we set $m=n=\min\{30, \|A_{\text{jazz}}\|_2\}$ in our call to `ENSub`.
 
@@ -211,13 +221,15 @@ u,v, _,_,_, _ = es.solve(Ajazz, [m, m], gamma = gam)
 
 Our algorithm finds the maximum clique, which has size $30$, corresponding to the group of musicians indexed by nonzero entries of $X$ visualized below.
 
-![Nodes of the maximum clique in the JAZZ graph are highlighted oranged squares](DEMO/jazz_clique.png)
+| Solution found in the JAZZ network                               | Maximum clique in JAZZ |
+| ----------------------------------------------------- | ----------------------------------------------------- |
+| ![JAZZ solution](DEMO/Jazz_X.png) | ![JAZZ max clique](DEMO/jazz_subgraph.png)|
 
-# How to contribute
+## How to contribute
 
 - Fork, clone, edit, commit, push, create pull request.
 
 
-# Reporting bugs and other issues
+## Reporting bugs and other issues
 
 If you encounter a clear bug, please file a minimal reproducible example on github.
