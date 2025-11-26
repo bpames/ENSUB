@@ -68,15 +68,9 @@ rad = np.linalg.norm(A)
 
 After generating the random matrix with desired planted structure, we can visually represent the matrix and planted submatrix as two-tone images, where dark pixels correspond to nonzero entries, and light pixels correspond to zero entries.
 
-:::{#fig-ex-1-matrix layout-ncols=3}
-![Adjacency matrix $A$](DEMO/planted_submatrix-A.png){#fig-ex1-A}
-
-![Proposed solutions $X_0$](DEMO/planted_submatrix-X0.png){#fig-ex1-X0}
-
-![Proposed solutions $Y_0$](DEMO/planted_submatrix-Y0.png){#fig-ex1-Y0}
-
-Random matrix $A$ sampled from the planted submatrix model and corresponding planted solution $(X_0, Y_0)$.
-:::
+| Adjacency matrix $A$                                  | Proposed solution $X_0$                                   |Proposed solutions $Y_0$                               |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| ![Adjacency matrix $A$](DEMO/planted_submatrix-A.png) |![Proposed solution $X_0$](DEMO/planted_submatrix-X0.png)|![Proposed solution $Y_0$](DEMO/planted_submatrix-Y0.png)|
 
 The vizualization of the randomly generated matrix  helps us to understand its structure. It is clear that it contains a dense 30 x 20 block (top left corner).
 
