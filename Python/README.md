@@ -127,11 +127,10 @@ np.fill_diagonal(AG, 1)
 
 It is clear from the following visualization that this graph contains a single especially dense subgraph with exactly $50$ nodes.
 
-![Graph Sampled from the Dense Subgraph Model](DEMO/G.png)
 
 | Adjacency matrix $A_G$                                  | Graph $G$ |
 | ----------------------------------------------------- | ----------------------------------------------------- | 
-| ![Adjacency matrix $A_G$   ](DEMO/symmetric_AG.png) | ![Graph $G$](DEMO/symmetric-G.png)|
+| ![Adjacency matrix $A_G$   ](DEMO/symmetric_AG.png) | ![Graph $G$](DEMO/Symmetric-G.png)|
 
 We can find this subgraph by calling ``ENSub``. Here, we change the optimization parameters from their defaults for illustration purposes. We choose $\gamma$ as in the previous example.
 
@@ -204,7 +203,7 @@ np.fill_diagonal(Ajazz, 1)
 
 | Adjacency matrix of JAZZ                                 | JAZZ Network |
 | ----------------------------------------------------- | ----------------------------------------------------- |
-| ![Adjacency matrix of JAZZ](DEMO/Jazz_AG.png) | ![JAZZ Graph](DEMO/jazz-G.png)|
+| ![Adjacency matrix of JAZZ](DEMO/Jazz_AG.png) | ![JAZZ Graph](DEMO/Jazz-G.png)|
 
 We are now ready to try to identify the densest submatrix of size 30 in this adjacency matrix. Here, we set $m=n=\min\{30, \|A_{\text{jazz}}\|_2\}$ in our call to `ENSub`.
 
@@ -223,7 +222,7 @@ Our algorithm finds the maximum clique, which has size $30$, corresponding to th
 
 | Solution found in the JAZZ network                               | Maximum clique in JAZZ |
 | ----------------------------------------------------- | ----------------------------------------------------- |
-| ![JAZZ solution](DEMO/Jazz_X.png) | ![JAZZ max clique](DEMO/jazz_subgraph.png)|
+| ![JAZZ solution](DEMO/Jazz_X.png) | ![JAZZ max clique](DEMO/Jazz_subgraph.png)|
 
 ## How to contribute
 
