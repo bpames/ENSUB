@@ -1,4 +1,4 @@
-function [x,y,X,fval, time] = en_sym_solve(A, m, gamma, alpha, rho, tol, maxiter, quiet)
+function [x,y,X,fval, time, iter] = en_sym_solve(A, m, gamma, alpha, rho, tol, maxiter, quiet)
 % Attempts to solve l1-regularized QP for densest submatrix using ADMM.
 
 tic

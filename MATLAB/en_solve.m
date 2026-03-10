@@ -1,4 +1,4 @@
-function [u,v,X,fval, time,  x, y] = en_solve(A, m,n, gamma, alpha, rho, tol, maxiter, quiet)
+function [u,v,X,fval, time, iter] = en_solve(A, m,n, gamma, alpha, rho, tol, maxiter, quiet)
 % Attempts to solve l1-regularized QP for densest submatrix using ADMM.
 
 tic

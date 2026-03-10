@@ -1,30 +1,27 @@
 %% Random matrix.
 % # Dimensions of the full matrix.
-M=60; N = 50;
+M=750; N = 500;
 
 % # Dimensions of the dense block.
-m=30; n = 20;
+m=220; n = 20;
 
 % # In-group and noise density.
 q=0.75; p = 0.25;
 
 % # Make binary matrix with planted mn-submatrix
-[A, X0, Y0] = plantedsubmatrix(M,N,m,n,p,q);
+[A, X0, Y0] = plantedsubmatrix([M,N],[m,n],p,q, false);
 
 imagesc([A,X0,Y0])
 
-%% Make matrix/graph
-
-% G = readmatrix("AG.csv");
-% imagesc(G)
 
 %% Solve using ENSub.
-rho=0.75; 
+rho= norm(1-A); 
 opt_tol=1e-5;
 quiet = false;
 alpha=0.5;
 mm=[30,20];
-gamma = (q-p)*sqrt(mm(1)*mm(2))/10;
+sig = max(p*(1-p), q*(1-q));
+gamma = 12*max(sqrt(sig*m*log(M)), log(M));
 symm=false;
 maxits=500;
 
