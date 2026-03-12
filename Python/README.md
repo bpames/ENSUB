@@ -3,7 +3,8 @@
 ## Introduction
 
 This is a Python module implementing the algorithms developed in the paper
-[Convex optimization for the densest subgraph and densest submatrix problems](https://arxiv.org/abs/1904.03272).
+**Exact Solution of The Planted Clique and Densest Submatrix Problems via Non-Convex Quadratic Programming** by Olanubi et al.
+
 
 The problem of identifying a dense submatrix is a fundamental problem in the  analysis of matrix structure and complex networks. This code provides tools for identifying the densest submatrix of the fixed size in a given graph/matrix using first-order optimization methods..
 
